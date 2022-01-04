@@ -12,16 +12,12 @@ module.exports = function toReadable (number) {
     ones = number % 10;
     hundreds = Math.trunc(number/100);
     tens = (number - hundreds*100 - ones)/10;
-
-    console.log("hundreds=" + hundreds + " tens=" + tens + " ones=" + ones);
     
     if (tens < 2) {
       resultStr += ((tens*10+ones) > 0) ? num19[tens*10+ones] : "";  
-      console.log("tens < 2 = " + resultStr);
     }
     else {
       resultStr += tensStr[tens] +  ((ones > 0) ? " " + num19[ones] : "");
-      console.log("tens >= 2 = " + resultStr);
     }
     
     if (hundreds > 0) {
@@ -32,9 +28,6 @@ module.exports = function toReadable (number) {
         resultStr = num19[hundreds] + " hundred";
       }
     }
-    //resultStr = ((hundreds > 0) ? num19[hundreds] + " hundred" : "") + " " + resultStr;
-    console.log("result = " + resultStr);
-    
   }
   return resultStr;
 }
